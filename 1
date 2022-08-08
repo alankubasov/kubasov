@@ -1,0 +1,26 @@
+
+
+let col_1, col_2
+
+
+
+function setup () {
+  createCanvas (600, 300)
+  col_1 = color (100, 70, 90)
+  col_2 = color (230, 0, 42)
+  col_3 = color (250, 0, 100)
+  noStroke ()
+}
+
+function draw () {
+  background(col_1)
+
+  for (let i = 0; i < 128; i++) {
+    let p = (frameCount + i) / 100
+    let y_off = abs (sin (p * PI * 2) * 120)
+    const c = lerpColor (col_1, col_3, i / 128)
+    fill (c)
+    square (80 + ((i / 128) * 150) , 160 - y_off, 70)  
+  }
+
+}
